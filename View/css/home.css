@@ -1,0 +1,264 @@
+*{margin: 0; padding: 0;}
+body{
+    font-family: 'Franklin Gothic Book';
+}
+.fundo{
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: absolute;
+}
+.fundo img{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: fixed;
+}
+.fundo .menutop{
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    z-index: 3;
+    box-shadow: 0 0 20px 0 black;
+    display: flex;
+}
+.menutop .logo{
+    display: none;
+}
+.menutop .info{
+    height: 90%;
+    width: 70%;
+    margin-left: 5%;
+    display: flex;
+    padding-top: 10px;
+}
+
+
+.menutop .info label{
+    border: none;
+    outline: none;
+    margin-left: 2%;
+    font-size: 20px;
+}
+.fundo .cabeca{
+    height: 100%;
+    width: 95%;
+    background-color: white;
+    box-shadow: 0 0 20px 0 black;
+    position: relative;
+    z-index: 2;
+    margin-top: 7%;
+    margin-left: 2.5%; 
+    padding: 10px;
+}
+.cabeca h1{
+    border-top: 10px double rgb(0, 128, 183);
+    border-bottom: 10px double rgb(0, 128, 183);
+    text-align: center;
+    color: black;
+    font-size: 30px;
+}
+.cabeca h2{
+    text-align: left;
+    font-size: 25px;
+}
+
+.menuLateral{
+    display: none;
+}
+
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 4;
+}
+
+
+.pedido:hover{
+    box-shadow: 0 0 3px black;
+}
+.pedido{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+}
+.pedido .itemDetalhes{
+    width: 30%;
+}
+.imgItem img{
+    height: 100px;
+    width: 100px;
+    position: relative;
+}
+.imgItem{
+    display: flex;
+    justify-content: flex-start;
+    
+}
+.btnAprovacao{
+    height: 50px;
+    width: 100px;
+    background-color: rgb(17, 65, 226);
+    color: white;
+    outline: none;
+    border: none;
+}
+.btnAprovacaoContainer{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.btnRejeicao{
+    height: 50px;
+    width: 100px;
+    background-color: rgb(226, 17, 17);
+    color: white;
+    outline: none;
+    border: none;
+}
+
+/* Responsividade para Telefones */
+/* Portrait */
+@media screen and (max-width:827px) and (max-height:1772px){
+  
+
+/* Cardapio */
+
+    .fundo .cabeca{
+        height: 100%;
+        width: 95%;
+        background-color: white;
+        box-shadow: 0 0 20px 0 black;
+        position: relative;
+        z-index: 2;
+        margin-top: 20%;
+        margin-left: 2.5%; 
+        padding: 10px;
+    }
+    /* Menu do Topo */
+    .menutop .info{
+        height: 90%;
+        width: 80%;
+        margin-left: 3%;
+        display: flex;
+        padding-top: 10px;
+    }
+    .menutop input{
+        display: none;
+    }
+    .menutop #btn{
+        display: none;
+    }
+    /* Menu lateral (So no Mobile!) */
+    .menuLateral input{
+        height: 50px;
+        width: 100%;
+        color: white;
+        background-color: rgb(150, 0, 0);
+        border: none;
+        outline: none;
+        font-size: 20px;
+        font-family: 'Franklin Gothic Medium';
+        padding-left: 1.5%;
+        padding-right: 1.5%;
+    }
+    .menuLateral #btn{
+        background-color: rgb(138, 86, 57);
+        margin-top: 4.5%;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    .menuLateral #btn1{
+        background-color: rgb(138, 86, 57);
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    .menuLateral {
+        padding-top: 4%;
+        display: block;
+        height: 106%;
+        width: 70%;
+        background-color: white;
+        position: fixed;
+        z-index: 5;
+        display: none;
+    }
+    #mlLBL{
+        font-size: 20px;
+    }
+    #mlX{
+        height: 5%;
+        width: 15%;
+        float: right;
+        margin-right: 8%;
+    }
+    #mlX img{
+        height: 100%;
+        width: 100%;
+    }
+    /* Botao do Menu */
+    .menutop .logo{
+        height: 100%;
+        width: 10%;
+        margin: 0;
+        display: block;
+    }
+    .logo img{
+        height: 100%;
+        width: 100%;
+    }
+    /* Tabela do conteudo */
+    .cabeca table{
+        width: 100%;
+        text-align: center;
+        margin-left: 1%;
+    }
+    /* Formulario dos pedidos */
+    .pedidos{
+        position: absolute;
+        z-index: 6;
+        height: 110%;
+        width: 105%;
+        background: rgba(0, 0, 0, .8);
+        display: none;
+    }
+    .pedidos form{
+        height: 55%;
+        width: 90%;
+        background: white;
+        margin-left: 5%;
+        margin-top: 15%;
+    }
+    .pedidos form input{
+        text-align: center;
+        height: 15%;
+        font-size: 20px;
+        border: none;
+        border-bottom: 1px solid black;
+        width: 21%;
+        margin-left: 5%;
+        outline: none;
+    }
+    .pedidos form .div{
+        width: 100%;
+        display: flex;
+    }
+    .div p{
+        font-size: 20px;
+    }
+    .div #p1{
+        margin-left: 15%;
+        font-size: 20px;
+    }
+    .div #p2{
+        margin-left: 20%;
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,22 @@
+*{margin: 0; padding: 0;}
+body{
+    font-family: 'Franklin Gothic Book';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pagina{
+    height: 100%;
+    width: 80%;
+    box-shadow: 0 0 10px black;
+    padding: 15px;
+}
+p, ol{
+    font-size: 20px;
+    text-align: justify;
+}
+
+ol{
+    margin-left: 20px;
+}

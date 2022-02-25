@@ -1,0 +1,37 @@
+
+<?php
+
+class Gestao{
+
+    function Aprovar(){
+        include_once("conexao.php");
+            
+            $idProduto = $_POST["Id_Produto"];
+
+            $string_select = "SELECT * FROM produto WHERE Id_Produto = '$idProduto' ";
+            $recebe = mysqli_query($conect, $string_select);
+
+            $linha = mysqli_fetch_assoc($recebe);
+
+            $usuario = $linha['Id_Usuario'];
+            $nome = $linha['Nome'];
+            $tipo = $linha['Tipo'];
+            $preco = $linha['Preco'];
+            $imagem = $linha['Imagem'];
+            $video = $linha['Video'];
+            $descricao = $linha['Descricao'];
+
+            $string_insert = "INSERT INTO produtoaceite (Id_Produto, Id_Usuario, Nome, Tipo, Preco, Imagem, Video, Descricao) 
+            VALUES ('$idProduto','$usuario','$nome','$tipo', $preco,'$imagem', null,'$descricao')";
+            $recebe = mysqli_query($conect, $string_insert);
+                
+            if($recebe){
+                $string_delete = "DELETE FROM produto WHERE Id_Produto = '$idProduto'";
+                $recebe = mysqli_query($conect, $string_delete);
+                header("location:/NetCommerce/index.php/home");
+            }
+    }
+    
+}
+
+?>

@@ -1,0 +1,231 @@
+*{margin: 0; padding: 0;}
+body{
+    font-family: 'Franklin Gothic Book';
+}
+.fundo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+}
+.fundo .imagem{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+.fundo .imagem img{
+    width: 100%;
+    height: 100%;
+}
+.fundo .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+}
+.fundo .reg{
+    position: absolute;
+    width: 35%;
+    height: 60%;
+    z-index: 3;
+    background-color: white;    
+    margin-left: 34%;
+    margin-top: 18.5%;
+    color: white;
+    border-radius: 5%;
+    display: none;
+}
+.fundo .reg input{
+    height: 30px;
+    width: 80%;
+    margin-left: 8%;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Franklin Gothic Book';
+}
+.reg h1{
+    color: black;
+    text-align: center;
+}
+.reg h5{
+    color: black;
+    text-align: center;
+}
+.reg #label{
+    font-size: 20px;
+    color: black;
+    margin-left: 30%;
+    display: none;
+}
+.reg #btnreg{
+    width: 100%;
+    margin: 0;
+    height: 50px;
+    color: white;
+    border: none;
+    outline: none;
+    background-color: rgb(0, 62, 232);
+    font-family: 'Franklin Gothic Medium';
+}
+.reg #btnreg:hover{
+    cursor: pointer;
+    background-color: rgb(27, 105, 223)
+}
+.fundo header{
+    position: absolute;
+    z-index: 3;
+    color: white;
+    margin-left: 35%;
+    margin-top: 5%;
+    width: 30%;
+    text-align: center;
+}
+.fundo header h1{
+    font-size: 40px;
+    font-family: 'Stencil';
+    color: rgb(0, 131, 202);
+}
+.opcoes{
+    position: absolute;
+    z-index: 3;
+    margin-top: 15%;
+    margin-left: 45%;
+    color: white;
+}
+.opcoes label{
+    font-size: 25px;
+}
+.opcoes #r1{
+    color: white;
+}
+.opcoes label:hover{
+    cursor: pointer;
+    color: rgb(0, 131, 202);
+}
+.fundo .formulario{
+    background-color: rgba(255, 255, 255);
+    border-radius: 2%;
+    height: 50%;
+    width: 30%;
+    position: absolute;
+    z-index: 3;
+    margin-left: 35%;
+    margin-top: 15%;
+}
+.formulario h1{
+    text-align: center;
+    margin-top: 1%;
+}
+.formulario #lbl{
+    font-size: 20px;
+    margin-left: 5%;
+    font-family: 'Franklin Gothic Book';
+}
+.formulario #txt{
+    margin-left: 5%;
+    width: 80%;
+    height: 25px;
+    padding-left: 5%;
+    font-size: 20px;
+    outline: none;
+}
+.formulario #btn{
+    width: 100%;
+    height: 50px;
+    color: white;
+    background-color:  rgb(0, 131, 202);;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 22px;
+    outline: none;
+    border: none;
+}
+.formulario #btn:hover{
+    background-color: rgb(0, 131, 202);
+    cursor: pointer;
+}
+.formulario h5{
+    text-align: center;
+}
+.opcoes #r1:checked label{
+    color: rgb(0, 131, 202);
+}
+/* Responsividade para Telefones */
+/* Portrait */
+@media screen and (max-width:827px) and (max-height:1772px){
+    
+    /* Ajustando fundo */
+    .fundo{
+        height: 100%;
+        width: 110%;
+    }
+    .fundo header{
+        margin-left: 80px;
+    }
+    .fundo header h1{
+        font-size: 30px;
+        margin-left: 50px;
+    }
+    .fundo .imagem img{
+        width: 100%;
+        height: 120%;
+    }
+    .fundo .overlay{
+        position: absolute;
+        width: 100%;
+        height: 120%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 2;
+    }
+/* Ajustando o menu */
+    .fundo .opcoes{
+        margin-top: 40%;
+        margin-left: 15%;
+    }
+
+/* Ajustar o formulario de Login */
+    .fundo .formulario{
+        background-color: rgba(255, 255, 255);
+        border-radius: 5%;
+        height: 60%;
+        width: 80%;
+        position: absolute;
+        z-index: 3;
+        margin-left: 12%;
+        margin-top: 60%;
+    }
+    .formulario #btn{
+        width: 100%;
+        height: 50px;
+        color: white;
+        background-color:rgb(0, 131, 202);
+        font-family: 'Franklin Gothic Heavy';
+        font-size: 22px;
+        outline: none;
+        border: none;
+    }
+
+/* Formulario de Registro*/
+    .fundo .reg{
+        position: absolute;
+        width: 90%;
+        height: 80%;
+        z-index: 3;
+        background-color: white;    
+        margin-left: 5%;
+        margin-top: 55%;
+        color: white;
+        border-radius: 2%;
+        display: none;
+    }
+
+    .reg #label{
+        font-size: 20px;
+        color: black;
+        margin-left: 25%;
+        display: block;
+    }
+    
+}
+
