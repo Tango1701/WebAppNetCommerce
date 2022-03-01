@@ -28,6 +28,12 @@
             $control->Entrar();
             unset($control);
         }
+        if($endereco == '/NetCommerce/index.php/reg')
+        {
+            $control = new CHome();
+            $control->Registrar();
+            unset($control);
+        }
         if($endereco == '/NetCommerce/index.php/logoff')
         {
             $control = new CHome();

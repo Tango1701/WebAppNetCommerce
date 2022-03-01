@@ -25,7 +25,7 @@ $linha = mysqli_fetch_assoc($recebe);
     echo "<label class='ttl'> Tipo </label>";
     echo "<label>".$linha['Tipo']."</label> <br>";
     echo "<label class='ttl'> Preço </label>";
-    echo "<label>".$linha['Preco']."</p>";
+    echo "<label>".$linha['Preco']." AOA</p>";
     echo "<label class='ttl'>Descrição</label> <br> <p>".$linha['Descricao']."</p>";
     echo "<br> <br>";
     echo "<input type='button' value='Comprar' id='btnCompra' onclick='move()'> <br>";

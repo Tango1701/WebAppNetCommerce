@@ -15,63 +15,70 @@
 <body>
     <div class="fundo">
         <div class="top">
-            <h1 style="font-family: Segoe UI;">NetCommerce</h1>
+            <h1 style="font-family: Segoe UI;" onclick="recarregar()">NetCommerce</h1>
             <div class="fotoPerfil">
                 <h3 style="color: black; font-weight: 100;"><?php echo $_SESSION['Nome']; ?></h3>
                 <img src="/NetCommerce/View/IMG/Mateus_Tango.jpg" >
+            </div>
+            <div class="pesquisa" id="pq">
+                <input type="text" name="pesquisa" placeholder="pesquisar..." id="pesquisa" oninput="pesquisar()">
+                <img src="/NetCommerce/View/IMG/Search_White.png" >
+            </div>
+            <div class="filtro" id="ft">
+                <select name="" id="filterBoo" onchange="filtrar()"></select>
+                <img src="/NetCommerce/View/IMG/Filter.png" >
             </div>
         </div>
         <div class="menuLateral">
             <div onclick="recarregar()">
                 <img src="/NetCommerce/View/IMG/Home.png" alt="">
             </div>
-            <div>
+            <div onclick="AbrePesquisa()">
                 <img src="/NetCommerce/View/IMG/Search_white.png" alt="">
             </div>
-            <div>
+            <div onclick="AbreFiltro()">
                 <img src="/NetCommerce/View/IMG/Filter.png" alt="">
             </div>
             <div onclick="abreVenda()">
                 <img src="/NetCommerce/View/IMG/Money.png" alt="">
             </div>
-            <div>
-                <img src="/NetCommerce/View/IMG/User.png" alt="">
+            <div onclick="abrePerfil()">
+                <img src="/NetCommerce/View/IMG/User.png" >
             </div>
             <div>
                 <img src="/NetCommerce/View/IMG/Settings 3_100px.png" alt="">
             </div>
-            <div>
+            <div onclick="teminaSessao()">
                 <img src="/NetCommerce/View/IMG/Shutdown_104px.png" alt="">
             </div>
         </div>
-        <div class="corpo">
-
+        <div class="corpo" id="corpo">
+            <br> <br>
             <h2>Novidades</h2> <br>
-            <div class="categoria">
 
-                <?php
-                $conect = mysqli_connect("localhost", "root", "", "netcommerce");
-                $query = "SELECT * FROM produtoaceite WHERE Estado = 'Activo'";
-                $resultado = mysqli_query($conect, $query);
-
-
-                while ($linha = mysqli_fetch_assoc($resultado)) {
-
-                    echo "<div class='card' onclick='abrir(" . $linha['Id_Produto'] . ")'>";
-                    echo "<div class='picture'>";
-                    echo "<img src='http://localhost/NetCommerce/files/" . $linha['Id_Usuario'] . "/" . $linha['Id_Produto'] . "/" . $linha['Imagem'] . "'>";
-                    echo "</div> ";
-                    echo "<h4>" . $linha['Nome'] . "</h4> ";
-                    echo "<input name='Id_Produto' id='Id_Produto' value=" . $linha['Id_Produto'] . " hidden> <br>";
-                    echo "<p>" . $linha['Preco'] . " AOA</p>";
-                    echo "</div> ";
-                }
-
-                ?>
-
+            <!-- <div class="slider"></div> -->
+            <div class="novidades" ></div> 
+            <div class="categoria" ></div>
+        </div>
+        <div id="search">
+            <div class="resultados"></div>
+        </div>
+        <div id="filter">
+            <div class="outcome"></div>
+        </div>
+        <div id="perfil">
+            <div class="info">
+                <img src="/NetCommerce/View/IMG/Mateus_Tango.jpg">
+                <h3 style="color: black;"><?php echo $_SESSION['Nome']; ?></h3>
+                <h3 style="color: black;"><?php echo $_SESSION['Email']; ?></h3>
+            </div> <br>
+            <div class="vendasFeitas">
+                <div id="VA"></div> <br>
+                <div id="VP"></div>
+                <div id="SS"></div>
+                <div class="comprasFeitas"></div>
             </div>
-
-
+            
         </div>
 
     </div>
@@ -163,6 +170,16 @@
     var detalhesProduto = document.getElementById("detalhesProduto")
     var tb = document.getElementById("tb")
     var pr = document.getElementById("pr")
+    var corpo = document.getElementById("corpo")
+    var perfil = document.getElementById("perfil")
+    var search = document.getElementById("search")
+    var filter = document.getElementById("filter")
+    var formaPagamento = document.getElementById("formasPagamento")
+    var formVenda = document.getElementById("FormVenda") 
+    var user = document.getElementById("user") 
+    var pq = document.getElementById("pq")
+    var ft = document.getElementById("ft")
+    var slider = document.getElementById("slider")
 
 
     var TB = () => {
@@ -187,6 +204,40 @@
         formVenda.style.display = "none"
     }
 
+    window.onload = ( () => {
+
+        var xmlhttp = new XMLHttpRequest();
+
+        let url = "/NetCommerce/Model/BuscaProdutos.php?user="+user.value;
+        xmlhttp.open('GET', url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = () => {
+            if (xmlhttp.readyState == 4) // Return Request
+            {
+                $(".novidades").html(xmlhttp.response)
+                categorias()
+                // Banner()
+            }
+        }
+    });
+   
+   
+   
+    function categorias(){
+        var xmlhttp = new XMLHttpRequest();
+
+        let url = "/NetCommerce/Model/BuscaCategoria.php?user="+user.value;
+        xmlhttp.open('GET', url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = () => {
+            if (xmlhttp.readyState == 4) // Return Request
+            {
+                // alert(xmlhttp.response)
+                $(".categoria").html(xmlhttp.response)
+            }
+        }
+    }
+
     function abrir(id) {
         overlay.style.display = "block"
         detalhesProduto.style.display = "block"
@@ -205,7 +256,6 @@
             }
         }
     }
-    var formaPagamento = document.getElementById("formasPagamento")
 
     var move = () => {
         formaPagamento.style.display = "flex"
@@ -213,15 +263,169 @@
         detalhesProduto.style.marginLeft = "10%"
         detalhesProduto.style.transition = "ease 0.7s"
     }
+
     recarregar = () => document.location.reload()
 
-    var formVenda = document.getElementById("FormVenda")
     function abreVenda ()
     {
         formVenda.style.display = "flex"
         overlay.style.display = "flex"
     }
 
+    function abrePerfil() {
+
+        corpo.style.display = "none"
+        search.style.display = "none"
+        filter.style.display = "none"
+        perfil.style.display = "flex"
+
+        var xmlhttp = new XMLHttpRequest();
+
+        let url = "/NetCommerce/Model/VendasUser.php?" +
+            "user=" + user.value;
+        xmlhttp.open('GET', url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = () => {
+            if (xmlhttp.readyState == 4) // Return Request
+            {
+                $("#VA").html(xmlhttp.response)
+                VP(user.value)
+            }
+        }
+    }
+
+    function VP(user) {
+
+        var xmlhttp = new XMLHttpRequest();
+
+        let url = "/NetCommerce/Model/VP.php?" +
+            "user=" + user;
+        xmlhttp.open('GET', url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = () => {
+            if (xmlhttp.readyState == 4) // Return Request
+            {
+                $("#VP").html(xmlhttp.response)
+                SS(user)
+            }
+        }
+    }
+
+    function SS(user) {
+
+        var xmlhttp = new XMLHttpRequest();
+
+        let url = "/NetCommerce/Model/SucessfulSells.php?" +
+            "user=" + user;
+        xmlhttp.open('GET', url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = () => {
+            if (xmlhttp.readyState == 4) // Return Request
+            {
+                $("#SS").html(xmlhttp.response)
+                ComprasFeitas(user)
+            }
+        }
+    }
+     
+    function ComprasFeitas(user) {
+
+        var xmlhttp = new XMLHttpRequest();
+
+        let url = "/NetCommerce/Model/ComprasUser.php?" +
+            "user=" + user;
+        xmlhttp.open('GET', url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = () => {
+            if (xmlhttp.readyState == 4) // Return Request
+            {
+                $(".comprasFeitas").html(xmlhttp.response)
+            }
+        }
+    }
+
+    function teminaSessao(){
+        var xmlhttp = new XMLHttpRequest();
+
+        let url = "/NetCommerce/index.php/logoff";
+        xmlhttp.open('GET', url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = () => {
+            if (xmlhttp.readyState == 4) // Return Request
+            {
+                document.location.pathname = "/NetCommerce/index.php"
+            }
+        }
+    }
+
+
+    function pesquisar(){
+
+        var valor = document.getElementById("pesquisa").value
+
+        perfil.style.display = "none"
+        corpo.style.display = "none"
+        search.style.display = "flex"
+
+        var xmlhttp = new XMLHttpRequest();
+
+        let url = "/NetCommerce/Model/Pesquisar.php?" +
+            "valor=" + valor;
+        xmlhttp.open('GET', url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = () => {
+            if (xmlhttp.readyState == 4) // Return Request
+            {
+                $(".resultados").html(xmlhttp.response)
+            }
+        }
+    }
+
+    var AbrePesquisa = () => {
+        pq.style.display = "flex"
+        ft.style.display = "none"
+    }
+
+    var AbreFiltro = () => {
+        ft.style.display = "flex"
+        pq.style.display = "none"
+
+        var xmlhttp = new XMLHttpRequest();
+
+        let url = "/NetCommerce/Model/buscaFiltros.php?";
+        xmlhttp.open('GET', url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = () => {
+            if (xmlhttp.readyState == 4) // Return Request
+            {
+                $("#filterBoo").html(xmlhttp.response)
+            }
+        }
+    }
+
+    function filtrar (){
+
+        perfil.style.display = "none"
+        corpo.style.display = "none"
+        search.style.display = "none"
+        ft.style.display = "flex"
+        filter.style.display = "flex"
+        
+        var selecionado = document.getElementById("filterBoo")
+
+        var xmlhttp = new XMLHttpRequest();
+
+        let url = "/NetCommerce/Model/Filtrar.php?user="+user.value +"&categoria="+selecionado.value;
+        xmlhttp.open('GET', url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = () => {
+            if (xmlhttp.readyState == 4) // Return Request
+            {
+                $(".outcome").html(xmlhttp.response)
+            }
+        }
+    }
+    
 </script>
 
 </html>

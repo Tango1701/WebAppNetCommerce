@@ -38,6 +38,12 @@ require_once basepath."/NetCommerce/Model/Produto.php";
             $control->login();
             unset($control);
         }
+        function Registrar()
+        {
+            $control = new Sessao();
+            $control->registrar();
+            unset($control);
+        }
         function Sair()
         {
             $control = new Sessao();
