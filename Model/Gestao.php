@@ -20,9 +20,10 @@ class Gestao{
             $imagem = $linha['Imagem'];
             $video = $linha['Video'];
             $descricao = $linha['Descricao'];
+            $time = $linha['Time'];
 
-            $string_insert = "INSERT INTO produtoaceite (Id_Produto, Id_Usuario, Nome, Tipo, Preco, Imagem, Video, Descricao) 
-            VALUES ('$idProduto','$usuario','$nome','$tipo', $preco,'$imagem', null,'$descricao')";
+            $string_insert = "INSERT INTO produtoaceite (Id_Produto, Id_Usuario, Nome, Tipo, Preco, Imagem, Video, Descricao, Time) 
+            VALUES ('$idProduto','$usuario','$nome','$tipo', $preco,'$imagem', null,'$descricao','$time')";
             $recebe = mysqli_query($conect, $string_insert);
                 
             if($recebe){

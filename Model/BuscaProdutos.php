@@ -10,8 +10,8 @@
 
     $recebe = mysqli_query($conect, $string_select);
 
+
     while($linha = mysqli_fetch_assoc($recebe)){
-        
 
         echo "<div class='card' onclick='abrir(" . $linha['Id_Produto'] . ")'>";
         echo "<div class='picture'>";
@@ -22,6 +22,7 @@
         echo "<p>" . $linha['Preco'] . " AOA</p>";
         echo "</div> ";
     }
+    
 
 
 ?>

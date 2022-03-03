@@ -23,61 +23,55 @@
         </div>
         <div class="pageLogin">
 
-            <form class="formulario" id="formulario" method="POST" action="/NetCommerce/index.php/log"> 
-                <h2>Iniciar Sessão</h2> 
+            <img src="/NetCommerce/View/IMG/bg.jpg" id="bg">
+
+
+            <form class="formulario" id="formulario" method="POST" action="/NetCommerce/index.php/log"> <br>
+                <h2>Iniciar Sessão</h2>  <br> <br> <br>
                 
                 <div>
-                    <img src="/NetCommerce/View/IMG/User_Blue.png">
-                    <input type="text" name="userN" placeholder="Nome de Usuario" required>
-                </div> 
+                    <img src="/NetCommerce/View/IMG/arroba.png">
+                    <input type="text" name="userN" placeholder="Email" required>
+                </div> <br> <br>
                 <div>
                     <img src="/NetCommerce/View/IMG/Key_Blue.png">
                     <input type="password" name="passW" placeholder="Palavra Passe" required> 
-                </div>
-                <input type="submit" value="Entrar" class="btn"> 
+                </div> <br> <br> <br>
+                <input type="submit" value="Entrar" class="btn"> <br>
+                <label >Ou</label> <br>
+                <input type="button" onclick="vaiReg()" id="asideBtn" value="Criar Conta"> <br>
                
-                <h5>Desenvolvido por: Mateus Tango</h5>
+                <h5>Desenvolvido por: Mateus Tango</h5> <br>
 
             </form>
         </div>
-        <aside id="login"> <br>
-            <img src="/NetCommerce/View/IMG/add_user.png"> <br>
-            <h3>Criar Conta</h3> <br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt mollitia laboriosam in animi ipsam
-                fugit omnis consequatur provident consequuntur officiis
-                saepe, nihil aut? Labore repudiandae est dolorem ipsum in vitae?
-            </p> <br>
-            <button onclick="vaiReg()" >Criar Conta</button>
-        </aside>
-        <aside id="registro"> <br>
-            <img src="/NetCommerce/View/IMG/User.png" > <br>
-            <h3>Iniciar Sessão</h3> <br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt mollitia laboriosam in animi ipsam
-                fugit omnis consequatur provident consequuntur officiis
-                saepe, nihil aut? Labore repudiandae est dolorem ipsum in vitae?
-            </p> <br>
-            <button onclick="vaiLogin()">Iniciar Sessão</button>
-        </aside>
         
-        <form class="reg" id="reg" method="POST" action="/NetCommerce/index.php/reg"> 
-                <h2>Criar Conta</h2> 
+        
+        <form class="reg" id="reg" method="POST" action="/NetCommerce/Model/Cadastro.php" enctype="multipart/form-data">  <br>
+                <h2>Criar Conta</h2> <br> <br>
                 
                 <div>
                     <img src="/NetCommerce/View/IMG/User_Blue.png">
                     <input type="text" name="nome" placeholder="Primeiro e Último Nome" required>
-                </div>
-                <div>
+                </div> <br>
+                <div> 
                     <img src="/NetCommerce/View/IMG/arroba.png">
                     <input type="text" name="email" placeholder="Email" required>
-                </div> 
+                </div> <br>
                 <div>
                     <img src="/NetCommerce/View/IMG/Key_Blue.png">
                     <input type="password" name="senha" placeholder="Palavra Passe" required> 
-                </div>
-                <input type="submit" value="Criar Conta" class="btn"> 
-               
+                </div> <br>
+
+                <div>
+                    <img src="/NetCommerce/View/IMG/Picture.png">
+                    <input type="file" name="foto" required> 
+                </div> <br> <br> <br>
+
+                <input type="submit" value="Criar Conta" class="btn"> <br>
+                <h5>Já tem conta?</h5> <br>
+                <button onclick="vaiLogin()" id="asideBtn">Iniciar Sessão</button> <br>
+                
                 <h5>Desenvolvido por: Mateus Tango</h5>
         </form>
 
@@ -85,24 +79,16 @@
 </body>
 
 <script>
-    var telaReg = document.getElementById("registro")
-    var telaLog = document.getElementById("login")
 
     var formReg = document.getElementById("reg")
     var formLog = document.getElementById("formulario")
 
     var vaiLogin = () => {
-        telaLog.style.display = "flex"
-        telaReg.style.display = "none"
-
         formReg.style.display = "none"
         formLog.style.display = "flex"
     }
 
     var vaiReg = () => {
-        telaLog.style.display = "none"
-        telaReg.style.display = "flex"
-
         formReg.style.display = "flex"
         formLog.style.display = "none"
     }

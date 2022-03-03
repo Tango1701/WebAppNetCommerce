@@ -110,11 +110,6 @@ CREATE TABLE `produtoaceite` (
 --
 
 INSERT INTO `produtoaceite` (`Id_Produto`, `Id_Usuario`, `Nome`, `Tipo`, `Preco`, `Imagem`, `Video`, `Descricao`, `Estado`, `Time`) VALUES
-(1, 'u1', 'Huawei', 'Eletronico', 50000, 'pink.jpg', NULL, 'Telefone Rosa', 'Inactivo', '2022-03-01'),
-(2, 'u1', 'Alcatel', 'Eletronico', 11000, 'alcatel.jpg', NULL, 'Telefone Alcatel', 'Inactivo', '2022-03-01'),
-(3, 'u1', 'Nokia', 'Eletronico', 10000, 'nokia.jpg', NULL, 'Telefone Nokia', 'Inactivo', '2022-03-01'),
-(5, 'u2', 'Camisola - Zara', 'Roupa', 4000, 'camiseta.jpg', NULL, 'Camisola zara. 2 meses de uso em bom estado', 'Inactivo', '2022-03-01'),
-(6, 'u3', 'Impressora', 'Eletronico', 125000, 'im.jpg', NULL, 'Impressora', 'Inactivo', '2022-03-01'),
 (7, 'u4', 'Itel', 'Eletronico', 3000, 's.jpg\r\n', NULL, 'Telefone Itel', 'Activo', '2022-03-01'),
 (8, 'u5', 'Hp', 'Eletronico', 10000, 'pc.jpg', NULL, 'Computador HP', 'Activo', '2022-03-01'),
 (9, 'u6', 'LG', 'Eletronico', 72000, 'mLG.jpg', NULL, 'Televisor LG', 'Activo', '2022-03-01'),

@@ -12,7 +12,7 @@ body {
   z-index: 0;
   position: absolute;
   padding-left: 2%;
-  /* overflow: scroll; */
+  background-image: url(/NetCommerce/View/IMG/bg.jpg);
 }
 .fundo .top {
   height: 50px;
@@ -22,16 +22,14 @@ body {
   z-index: 2;
   display: flex;
   color: dodgerblue;
-  /* justify
-  .-content: space-evenly; */
 }
 .top h1:hover{
   cursor: pointer;
 }
 .fundo .menuLateral {
   height: 100%;
-  width: 40px;
-  background-color: rgba(0, 0, 0, 0.8);
+  width: 12%;
+  background-color: rgb(36, 36, 36);
   right: 0;
   position: fixed;
   z-index: 2;
@@ -46,14 +44,41 @@ body {
   position: absolute;
   z-index: 5;
 }
-.menuLateral div{
+.menuLateral div:not(.pic, .d){
     margin: 0;
+    width: 90%;
+    height: 5%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    flex-direction: column;
+    flex-direction: row;
     color: white;
-    background-color: rgba(0, 0, 0, 0.8);
+}
+.pic{
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.d{
+  width: 78%;
+  margin-left: 2%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.d label{
+  font-size: 20px;
+}
+.menuLateral div:hover:not(.pic, .d){
+  border-bottom: 1px solid dodgerblue;
+}
+
+.menuLateral div:hover .d label{
+  color: dodgerblue;
+  cursor: pointer;
 }
 
 .card:hover{
@@ -70,6 +95,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 .fundo #search{
   position: absolute;
   height: 90%;
@@ -94,7 +120,8 @@ body {
 }
 .pesquisa{
   position: absolute;
-  right: 25%;
+  right: 35%;
+  top: 2%;
   height: 90%;
   width: 30%;
   display: none;
@@ -104,7 +131,7 @@ body {
 
 .filtro{
   position: absolute;
-  right: 25%;
+  right: 35%;
   height: 90%;
   width: 30%;
   display: none;
@@ -162,7 +189,7 @@ body {
 .fundo #perfil{
   position: absolute;
   height: 90%;
-  width: 100%;
+  width: 90%;
   margin: 5% 2%;
   padding: 2%;
   overflow: scroll;
@@ -178,18 +205,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  /* background-color: white; */
   flex-direction: column;
 }
 .info img{
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
+  margin-bottom: 1%;
 }
 .vendasFeitas{
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background-color: white;
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 50px;
@@ -220,23 +250,28 @@ body {
   border: 1px solid dodgerblue;
 }
 .slider{
-  height: 500px;
-  width: 80%;
+  height: 50%;
+  width: 90%;
   border: 1px solid green;
-  position: relative;
-  overflow: hidden;
+  /* position: absolute;- */
+  left: 2%;
+  /* overflow: hidden; */
   margin-bottom: 5%;
-  /* animation: slide  10s infinite;
-  transition: ease;
-  animation-direction: alternate; */
+  /* background-image: url(/NetCommerce/Files/Banner/Mercedes_Car.jpg) ; */
+  /* background-image: center; */
 }
-
-/* @keyframes slide {
+.slider img{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+/* 
+@keyframes slide {
   0%, 30%{
-    background-image: url(/NetCommerce/Files/Banner/i3.jfif);
+    background-image: url(/NetCommerce/Files/Banner/i3.jfif;
   }
   35%, 70%{
-    background-image: url(/NetCommerce/Files/Banner/Mercedes_Car.jpg);
+    background-image: url(/NetCommerce/Files/Banner/Mercedes_Car.jpg) ;
   }
   75%, 100%{
     background-image: url(/NetCommerce/Files/Banner/mercedes_shoes.jpg);
@@ -307,6 +342,7 @@ p{
   text-align: center;
   margin: 5px;
   cursor: pointer;
+  background-color: white;
 }
 .card .picture {
   height: 65%;
@@ -326,7 +362,7 @@ p{
     height: 50px;
     width: 15%;
     min-width: 100px;
-    right: 5%;
+    right: 15%;
     position: absolute;
     overflow: hidden;
     display: flex;

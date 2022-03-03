@@ -39,15 +39,13 @@ class Produto{
         $tipo = $_POST['tipo'];
         $preco = $_POST['preco'];
         $descricao = $_POST['descricao'];
-        // $tempo_uso = $_POST['tempo'];
-        // $detalhes =  "Tempo de uso ".$tempo_uso." anos. \n".$descricao;
 
         $imagem = $_FILES['imagem']['name'];
-        // $video = $_POST['video']['name'];
 
+        $hoje = date("Y-m-d");
         // Creating SQL query and insert the record into MySQL database table.
-        $Sql_Query = "INSERT INTO produto ( Id_Usuario, Nome, Tipo, Preco, Imagem, Video, Descricao) 
-        VALUES ('$Id_Usuario', '$name','$tipo','$preco','$imagem', 'null','$descricao')";
+        $Sql_Query = "INSERT INTO produto ( Id_Usuario, Nome, Tipo, Preco, Imagem, Video, Descricao, Time) 
+        VALUES ('$Id_Usuario', '$name','$tipo','$preco','$imagem', 'null','$descricao','$hoje')";
         
         if(mysqli_query($conect, $Sql_Query)){
 

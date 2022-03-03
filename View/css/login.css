@@ -7,6 +7,8 @@ body{
     height: 100%;
     position: absolute;
     z-index: 0;
+    display: flex;
+    flex-direction: column;
 }
 .fundo .imagem{
     width: 100%;
@@ -20,52 +22,30 @@ body{
 }
 .fundo .pageLogin{
     position: absolute;
-    width: 88%;
+    width: 100%;
     height: 100%;
     background-color: white;
     z-index: 2;
-    box-shadow: 2px 2px 5px black;
-    border: 1px solid rgb(0, 131, 202);
 }
-#login{
-    width: 12%;
+.pageLogin #bg{
     height: 100%;
+    width: 100%;
+    z-index: 2;
     position: absolute;
-    background-color: rgb(0, 131, 202);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    overflow-wrap: break-word;
-    z-index: 1;
-    right: 0;
-
 }
-#registro{
-    width: 12%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    background-color: rgb(0, 131, 202);
-    color: white;
-    display: none;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    overflow-wrap: break-word;
-    right: 0;
 
-}
-aside button{
+#asideBtn {
     height: 35px;
-    width: 80%;
+    width: 100%;
     border-radius: 5px;
     box-shadow: 0 0 2px black;
     color: rgb(0, 131, 202);
     background-color: white;
     border: none;
     font-weight: bold;
+}
+#asideBtn:hover{
+    cursor: pointer;
 }
 aside img{
     height: 35px;
@@ -79,18 +59,18 @@ aside p{
 
 .fundo .reg{
     position: absolute;
-    width: 25%;
-    height: 60%;
+    width: 27%;
+    height: 70%;
     z-index: 3;
     background-color: white;    
-    margin-left: 30%;
+    margin-left: 36.5%;
     margin-top: 10%;
     color: white;
     border-radius: 2%;
     border: 1px solid rgb(0, 131, 202);
     display: none;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding: 1% 2% 0 2%;
 }
@@ -138,23 +118,23 @@ aside p{
     font-size: 40px;
     font-family: 'Franklin Gothic Book';
     color: rgb(0, 131, 202);
-    text-align: left;
+    text-align: center;
 }
 
 .fundo .formulario{
     background-color: rgba(255, 255, 255);
     border-radius: 2%;
     height: 60%;
-    width: 30%;
+    width: 25%;
     position: absolute;
     z-index: 3;
-    margin-left: 32%;
+    left: 37.5%;
     margin-top: 12%;
     border: 1px solid rgb(0, 131, 202);
     padding: 1% 2% 0 2%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -179,6 +159,9 @@ aside p{
     margin-left: 1%;
     border: none;
     outline: none;
+    text-align: center;
+    font-family: 'Franklin Gothic Book';
+    font-size: 18px;
   }
   
   

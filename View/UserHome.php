@@ -18,7 +18,7 @@
             <h1 style="font-family: Segoe UI;" onclick="recarregar()">NetCommerce</h1>
             <div class="fotoPerfil">
                 <h3 style="color: black; font-weight: 100;"><?php echo $_SESSION['Nome']; ?></h3>
-                <img src="/NetCommerce/View/IMG/Mateus_Tango.jpg" >
+                <img src="/NetCommerce/Files/<?php echo $_SESSION['Id_Usuario']."/".$_SESSION['Foto']; ?>" >
             </div>
             <div class="pesquisa" id="pq">
                 <input type="text" name="pesquisa" placeholder="pesquisar..." id="pesquisa" oninput="pesquisar()">
@@ -31,47 +31,91 @@
         </div>
         <div class="menuLateral">
             <div onclick="recarregar()">
-                <img src="/NetCommerce/View/IMG/Home.png" alt="">
+                <div class="pic">
+                    <img src="/NetCommerce/View/IMG/Home.png" >
+                </div>
+                <div class="d">
+                    <label>Home</label>
+                </div>
             </div>
             <div onclick="AbrePesquisa()">
-                <img src="/NetCommerce/View/IMG/Search_white.png" alt="">
+                <div class="pic">
+                    <img src="/NetCommerce/View/IMG/Search_white.png" alt="">
+                </div>
+                <div class="d">
+                    <label>Pesquisar</label>
+                </div>
+                
             </div>
             <div onclick="AbreFiltro()">
+                <div class="pic">
                 <img src="/NetCommerce/View/IMG/Filter.png" alt="">
+                </div>
+                <div class="d">
+                    <label>Filtrar</label>
+                </div>
+                
             </div>
             <div onclick="abreVenda()">
-                <img src="/NetCommerce/View/IMG/Money.png" alt="">
+                <div class="pic">
+                    <img src="/NetCommerce/View/IMG/Money.png" alt="">
+                </div>
+                <div class="d">
+                    <label>Vender</label>
+                </div>
+                
             </div>
             <div onclick="abrePerfil()">
-                <img src="/NetCommerce/View/IMG/User.png" >
+                <div class="pic">
+                    <img src="/NetCommerce/View/IMG/User.png" >
+                </div>
+                <div class="d">
+                    <label>Perfil</label>
+                </div>
             </div>
             <div>
-                <img src="/NetCommerce/View/IMG/Settings 3_100px.png" alt="">
+                <div class="pic">
+                    <img src="/NetCommerce/View/IMG/Settings 3_100px.png" alt="">
+                </div>
+                <div class="d">
+                    <label>Definições</label>
+                </div>
             </div>
             <div onclick="teminaSessao()">
-                <img src="/NetCommerce/View/IMG/Shutdown_104px.png" alt="">
+                <div class="pic">
+                    <img src="/NetCommerce/View/IMG/Shutdown_104px.png" alt="">
+                </div>
+                <div class="d">
+                    <label>Sair</label>
+                </div>
             </div>
         </div>
+
+        <!-- <div class="slider">
+         <img src="/NetCommerce/Files/Banner/mercedes_shoes.jpg" alt=""> </div> -->
+
         <div class="corpo" id="corpo">
+            
             <br> <br>
             <h2>Novidades</h2> <br>
 
-            <!-- <div class="slider"></div> -->
-            <div class="novidades" ></div> 
+            <div class="novidades" > </div> 
             <div class="categoria" ></div>
         </div>
-        <div id="search">
+        <div id="search"> <br> <br>
             <div class="resultados"></div>
         </div>
-        <div id="filter">
+        <div id="filter"> <br> <br>
             <div class="outcome"></div>
         </div>
-        <div id="perfil">
+        <div id="perfil"> <br> <br>
             <div class="info">
-                <img src="/NetCommerce/View/IMG/Mateus_Tango.jpg">
-                <h3 style="color: black;"><?php echo $_SESSION['Nome']; ?></h3>
+                <img src="/NetCommerce/Files/<?php echo $_SESSION['Id_Usuario']."/".$_SESSION['Foto']; ?>"> 
+                <h3 style="color: black;"><?php echo $_SESSION['Nome']; ?></h3> <br>
                 <h3 style="color: black;"><?php echo $_SESSION['Email']; ?></h3>
-            </div> <br>
+            </div> <br> <br> <br>
+            <h2>Compras e Vendas</h2> <br> <hr>
+
             <div class="vendasFeitas">
                 <div id="VA"></div> <br>
                 <div id="VP"></div>
@@ -121,7 +165,7 @@
         <form action="/NetCommerce/index.php/vender" method="POST" class="FormVenda" id="FormVenda" enctype="multipart/form-data">
             <label id="fechar" onclick="fechar()">X</label>
                 <h3>Efectuar uma Venda</h3>
-            <div>
+            <div>   
                 <img src="/NetCommerce/View/IMG/brand.png">
                 <input type="text" name="marca" id="" placeholder="Marca" required>
             </div>
@@ -363,6 +407,7 @@
 
         var valor = document.getElementById("pesquisa").value
 
+        filter.style.display = "none"
         perfil.style.display = "none"
         corpo.style.display = "none"
         search.style.display = "flex"

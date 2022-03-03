@@ -39,6 +39,8 @@ class Sessao
                             $_SESSION["Senha"] = $linha['Senha'];
                             $_SESSION["Nome"] = $linha['Nome'];
                             $_SESSION["Email"] = $linha['Email'];
+                            $_SESSION["Foto"] = $linha['Foto'];
+
                             echo $_SESSION["Id_Usuario"];
                             header("location: /NetCommerce/index.php/userhome");
                     }else{
@@ -58,11 +60,16 @@ class Sessao
         // Importing DBConfig.php file.
         include_once("conexao.php");
        
-        $name = $_POST['nome'];
+        $nome = $_POST['nome'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
+        $fotogragia = $_POST['foto'];
        
-       
+        $_FILES['foto']['name'] = $fotogragia;
+
+        // $novo_nome = strtolower($_FILES['foto']['name']);   
+        echo $foto;
+
         $novoU = "SELECT Proximo_User FROM config WHERE ID = 1";
         $result = mysqli_query($conect, $novoU);
         $result = mysqli_fetch_assoc($result);
@@ -71,11 +78,11 @@ class Sessao
         $Id_Usuario = $result['Proximo_User'];
        
          // Creating SQL query and insert the record into MySQL database table.
-        $Sql_Query = "INSERT INTO usuario(Id_Usuario, Nome, Email, Senha) 
-                     VALUES ('$user', '$name','$email','$senha')";
+        $Sql_Query = "INSERT INTO usuario(Id_Usuario, Nome, Email, Senha, Foto) 
+                     VALUES ('$user', '$nome','$email','$senha','$fotogragia')";
 
          if(mysqli_query($conect, $Sql_Query)){
-            echo $user.$name.$email.$senha;
+            echo $user.$nome.$email.$senha;
 
        
            $user = substr($user, 1);
@@ -86,9 +93,10 @@ class Sessao
            $foi = mysqli_query($conect, $novoUser);
        
            mkdir("./Files/$Id_Usuario/");
+           move_uploaded_file($_FILES['foto']['tmp_name'], "./Files/$Id_Usuario/$foto");
            
            if($foi){
-            header("location: /NetCommerce/index.php");
+            // header("location: /NetCommerce/index.php");
            }
        
          echo $Id_Usuario;
