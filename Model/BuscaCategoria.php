@@ -12,7 +12,7 @@
         $Busca = "SELECT * FROM produtoaceite WHERE Tipo = '".$linha['Nome']."' AND Estado = 'Activo' AND Id_Usuario != '$user' ";
         $result = mysqli_query($conect, $Busca);
 
-        echo "<br> <h2>".$linha['Nome']."</h2>";
+        echo "<br> <h5>".$linha['Nome']."</h5>";
         echo "<div class='colecao'>";
 
         while($dados = mysqli_fetch_assoc($result)){
@@ -21,9 +21,11 @@
             echo "<div class='picture'>";
             echo "<img src='http://localhost/NetCommerce/files/" . $dados['Id_Usuario'] . "/" . $dados['Id_Produto'] . "/" . $dados['Imagem'] . "'>";
             echo "</div> ";
+            echo "<div class='cardTxt'> ";
             echo "<h4>" . $dados['Nome'] . "</h4> ";
             echo "<input name='Id_Produto' id='Id_Produto' value=" . $dados['Id_Produto'] . " hidden> <br>";
             echo "<p>" . $dados['Preco'] . " AOA</p>";
+            echo "</div> ";
             echo "</div> ";
         }
         echo "</div> <br>";

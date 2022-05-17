@@ -14,7 +14,7 @@
         }
         if($endereco == '/NetCommerce/index.php/userhome')
         {
-            header("location: /NetCommerce/View/UserHome.php");
+            header("location: /NetCommerce/View/DashHome.php");
         }
         if($endereco == '/NetCommerce/index.php')
         {

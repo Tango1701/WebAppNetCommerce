@@ -116,6 +116,9 @@ class Sessao
         session_start();
         unset($_SESSION["Id_Usuario"]);
         unset($_SESSION['Senha']);
+        unset($_SESSION['Email']);
+        unset($_SESSION["Foto"]);
+        
         session_destroy();
         header("location: /NetCommerce/index.php");
     }

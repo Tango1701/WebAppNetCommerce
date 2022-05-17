@@ -1,0 +1,134 @@
+*{margin: 0; padding: 0;}
+
+body{
+    font-family: 'Franklin Gothic Book';
+}
+
+.fundo{
+    height: 100vh;
+    width: 100%;
+    background-color: #f2f2f2;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../IMG/gears bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: repeat;
+    /* background: url("../IMG/phone and flour bg.jpg"); */
+}
+.frontPanel{
+    height: 90%;
+    width: 90%;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+    /* display: none; */
+}
+
+input[type=text], select, input[type=number], input[type=date], input[type=email], input[type=file] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=button] {
+    width: 100%;
+    background-color: rgb(21, 146, 230);
+    /* background-color: #4CAF50; */
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: rgb(13, 119, 190);
+    /* background-color: #45a049; */
+  }
+  
+  .frontPanel {
+    border-radius: 5px;
+    /* background-color: rgb(30, 30, 30); */
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  .cabecalho{
+      height: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  }
+  .barraprogresso{
+      width: 75%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .barraprogresso h5{
+        font-size: 15px;
+    }
+  .bolha{
+      height: 50px;
+      width: 60px;
+      border: 3px solid grey;
+      /* border: 3px solid rgb(21, 146, 230); */
+      border-radius: 50%;
+      color: rgb(21, 146, 230);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+  }
+  .bolha i{
+      color: grey;
+  }
+  .passo{
+      height: 30px;
+      width: 20%;
+      border-bottom: 10px solid grey;
+      /* border-bottom: 10px solid rgb(21, 146, 230); */
+      text-align: center;
+      margin-top: -20px;
+      padding: 0;
+  }
+
+  form{
+    /* width: 90%; */
+    /* height: 100%; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: scroll;
+  }
+  form::-webkit-scrollbar{
+    display: none;
+}
+
+form div{
+    width: 40%;
+  }
+form .form:not(:first-child){
+    display: none;
+} 
+form .form{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+.form div p{
+  text-align: justify;
+}
+.form div video{
+  height: 200px;
+  width: 100%;
+  background-color: black;
+}

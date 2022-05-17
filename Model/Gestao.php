@@ -32,6 +32,33 @@ class Gestao{
                 header("location:/NetCommerce/index.php/home");
             }
     }
+
+    function Rejeitar(){
+        include_once("conexao.php");
+            
+            $idProduto = $_POST["Id_Produto"];
+
+
+            $string_select = "SELECT * FROM produto WHERE Id_Produto = '$idProduto' ";
+            $recebe = mysqli_query($conect, $string_select);
+
+            $linha = mysqli_fetch_assoc($recebe);
+
+            $usuario = $linha['Id_Usuario'];
+
+
+            $delete = "DELETE FROM produto WHERE Id_Produto = '$idProduto' ";
+            $recebe = mysqli_query($conect, $delete);
+
+                
+            if($recebe){
+                $insert = "INSERT INTO rejeitado(Id_Usuario, Id_Produto) VALUES ('$usuario', $idProduto)";
+                $recebe = mysqli_query($conect, $insert);
+                
+                // if($recebe)
+                //     header("location:/NetCommerce/index.php/home");
+            }
+    }
     
 }
 

@@ -41,6 +41,9 @@ class Produto{
         $descricao = $_POST['descricao'];
 
         $imagem = $_FILES['imagem']['name'];
+        $imagem2 = $_FILES['imagem2']['name'];
+        $imagem3 = $_FILES['imagem3']['name'];
+        $imagem4 = $_FILES['imagem4']['name'];
 
         $hoje = date("Y-m-d");
         // Creating SQL query and insert the record into MySQL database table.
@@ -63,10 +66,16 @@ class Produto{
         if(mkdir("Files/$Id_Usuario/")){
             mkdir("Files/$Id_Usuario/$novoId/");
             move_uploaded_file($_FILES['imagem']['tmp_name'], "./Files/$Id_Usuario/$novoId/$novo_nome");
+            move_uploaded_file($_FILES['imagem2']['tmp_name'], "./Files/$Id_Usuario/$novoId/$novo_nome");
+            move_uploaded_file($_FILES['imagem3']['tmp_name'], "./Files/$Id_Usuario/$novoId/$novo_nome");
+            move_uploaded_file($_FILES['imagem4']['tmp_name'], "./Files/$Id_Usuario/$novoId/$novo_nome");
         }
         else{
             mkdir("Files/$Id_Usuario/$novoId/");
             move_uploaded_file($_FILES['imagem']['tmp_name'], "./Files/$Id_Usuario/$novoId/$novo_nome");            
+            move_uploaded_file($_FILES['imagem2']['tmp_name'], "./Files/$Id_Usuario/$novoId/$novo_nome");            
+            move_uploaded_file($_FILES['imagem3']['tmp_name'], "./Files/$Id_Usuario/$novoId/$novo_nome");            
+            move_uploaded_file($_FILES['imagem4']['tmp_name'], "./Files/$Id_Usuario/$novoId/$novo_nome");            
         }
 
             

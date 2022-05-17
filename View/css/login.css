@@ -207,77 +207,200 @@ aside p{
 /* Portrait */
 @media screen and (max-width:827px) and (max-height:1772px){
     
-    /* Ajustando fundo */
-    .fundo{
-        height: 100%;
-        width: 110%;
-    }
-    .fundo header{
-        margin-left: 80px;
-    }
-    .fundo header h1{
-        font-size: 30px;
-        margin-left: 50px;
-    }
-    .fundo .imagem img{
-        width: 100%;
-        height: 120%;
-    }
-    .fundo .overlay{
-        position: absolute;
-        width: 100%;
-        height: 120%;
-        background-color: rgba(0, 0, 0, 0.7);
-        z-index: 2;
-    }
-/* Ajustando o menu */
-    .fundo .opcoes{
-        margin-top: 40%;
-        margin-left: 15%;
-    }
-
-/* Ajustar o formulario de Login */
-    .fundo .formulario{
-        background-color: rgba(255, 255, 255);
-        border-radius: 5%;
-        height: 60%;
-        width: 80%;
-        position: absolute;
-        z-index: 3;
-        margin-left: 12%;
-        margin-top: 60%;
-    }
-    .formulario .btn{
-        width: 100%;
-        height: 50px;
-        color: white;
-        background-color:rgb(0, 131, 202);
-        font-family: 'Franklin Gothic Heavy';
-        font-size: 22px;
-        outline: none;
-        border: none;
-    }
-
-/* Formulario de Registro*/
-    .fundo .reg{
-        position: absolute;
-        width: 90%;
-        height: 80%;
-        z-index: 3;
-        background-color: white;    
-        margin-left: 5%;
-        margin-top: 55%;
-        color: white;
-        border-radius: 2%;
-        display: none;
-    }
-
-    .reg #label{
-        font-size: 20px;
-        color: black;
-        margin-left: 25%;
-        display: block;
-    }
-    
+    *{margin: 0; padding: 0;}
+body{
+    font-family: 'Franklin Gothic Book';
+}
+.fundo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+}
+.fundo .imagem{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+.fundo .imagem img{
+    width: 100%;
+    height: 100%;
+}
+.fundo .pageLogin{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 2;
+}
+.pageLogin #bg{
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    position: absolute;
 }
 
+#asideBtn {
+    height: 90px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 2px black;
+    color: rgb(0, 131, 202);
+    background-color: white;
+    border: none;
+    font-weight: bold;
+}
+#asideBtn:hover{
+    cursor: pointer;
+}
+
+.fundo .reg{
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    z-index: 3;
+    background-color: white;    
+    margin-left: 1%;
+    margin-top: 20%;
+    color: white;
+    border-radius: 2%;
+    border: 1px solid rgb(0, 131, 202);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 2% 0 2%;
+}
+
+.reg h2{
+    color: black;
+    text-align: center;
+}
+.reg h5{
+    color: black;
+    text-align: center;
+}
+.reg #label{
+    font-size: 20px;
+    color: black;
+    margin-left: 30%;
+    display: none;
+}
+.reg .btn{
+    width: 100%;
+    height: 90px;
+    color: white;
+    background-color:  rgb(0, 131, 202);;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 18px;
+    font-weight: 100;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.reg #btnreg:hover{
+    cursor: pointer;
+    background-color: rgb(27, 105, 223)
+}
+.fundo header{
+    position: absolute;
+    z-index: 3;
+    color: white;
+    /* margin-left: 35%; */
+    margin-top: 5%;
+    width: 30%;
+    text-align: left;
+}
+.fundo header h1{
+    font-size: 30px;
+    font-family: 'Franklin Gothic Book';
+    color: rgb(0, 131, 202);
+    text-align: left;
+}
+
+.fundo .formulario{
+    background-color: rgba(255, 255, 255);
+    border-radius: 2%;
+    height: 70%;
+    width: 90%;
+    position: absolute;
+    z-index: 3;
+    left: 1%;
+    margin-top: 35%;
+    border: 1px solid rgb(0, 131, 202);
+    padding: 1% 2% 0 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.formulario div, .reg div{
+    height: 25px;
+    width: 100%;
+    border-bottom: 1px solid rgb(151, 151, 151);
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .formulario div img, .reg div img{
+    height: 90%;
+    width: 7%;
+  }
+  .formulario div input, .reg div input{
+    width: 88%;
+    height: 100%;
+    margin-left: 1%;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-family: 'Franklin Gothic Book';
+    font-size: 18px;
+  }
+  
+  
+
+.formulario h1{
+    text-align: center;
+    margin-top: 1%;
+}
+.formulario #lbl{
+    font-size: 20px;
+    margin-left: 5%;
+    font-family: 'Franklin Gothic Book';
+}
+.formulario #txt{
+    margin-left: 5%;
+    width: 80%;
+    height: 25px;
+    padding-left: 5%;
+    font-size: 20px;
+    outline: none;
+}
+.formulario .btn{
+    width: 100%;
+    height: 90px;
+    color: white;
+    background-color:  rgb(0, 131, 202);;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 18px;
+    font-weight: 100;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.formulario .btn:hover{
+    background-color: rgb(0, 131, 202);
+    cursor: pointer;
+}
+.formulario h5{
+    text-align: center;
+}
+
+}

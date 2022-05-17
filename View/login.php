@@ -15,16 +15,12 @@
 
         <header>
             <h1>NetCommerce</h1> <br>
-            <!-- <h2>Negócio Informal</h2> -->
             <div class="logo"></div>
         </header>
-        <div class="imagem">
-            <!-- <img src="/NetCommerce/View/IMG/pc_tablet.jpg"> -->
-        </div>
+        
         <div class="pageLogin">
 
-            <img src="/NetCommerce/View/IMG/bg.jpg" id="bg">
-
+            <img src="/NetCommerce/View/IMG/ubuntu.jpg" id="bg">
 
             <form class="formulario" id="formulario" method="POST" action="/NetCommerce/index.php/log"> <br>
                 <h2>Iniciar Sessão</h2>  <br> <br> <br>
@@ -45,7 +41,6 @@
 
             </form>
         </div>
-        
         
         <form class="reg" id="reg" method="POST" action="/NetCommerce/Model/Cadastro.php" enctype="multipart/form-data">  <br>
                 <h2>Criar Conta</h2> <br> <br>

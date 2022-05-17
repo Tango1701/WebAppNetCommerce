@@ -5,8 +5,9 @@
 include_once("conexao.php");
 
 $valor = $_GET['valor'];
+$user = $_GET['user'];
 
-$string_select = "SELECT * FROM produtoaceite WHERE Nome LIKE '%$valor%' ";
+$string_select = "SELECT * FROM produtoaceite WHERE Nome LIKE '%$valor%' AND Id_Usuario != '$user' ";
 
 $recebe = mysqli_query($conect, $string_select);
 

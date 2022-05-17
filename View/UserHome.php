@@ -9,11 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="./js/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/userHome.css">
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
     <title>NetCommerce</title>
 </head>
 
 <body>
     <div class="fundo">
+        <!-- <img src="/NetCommerce/View/IMG/ubuntu.jpg" id="fdimg"> -->
         <div class="top">
             <h1 style="font-family: Segoe UI;" onclick="recarregar()">NetCommerce</h1>
             <div class="fotoPerfil">
@@ -121,6 +125,8 @@
                 <div id="VP"></div>
                 <div id="SS"></div>
                 <div class="comprasFeitas"></div>
+                <canvas id="myChart" ></canvas>
+
             </div>
             
         </div>
@@ -132,6 +138,8 @@
             <form id="detalhes"></form>
         </div>
         <div id="formasPagamento">
+            <label id="fechar" onclick="fechar()">X</label>
+
             <h3>Escolha a forma de pagamento</h3>
             <div class="formas">
                 <div class="emis" onclick="PR()"><img src="/NetCommerce/View/IMG/pr.png">Pagamento por Referéncia </div>
@@ -187,14 +195,24 @@
             <input type="number" name="preco" id="" placeholder="Preço Desejado" required>
             </div>
 
-            <div>
-            <img src="/NetCommerce/View/IMG/Picture.png" >
-            <input type="file" name="imagem" id="" required>
+                <div>
+                <img src="/NetCommerce/View/IMG/Picture.png" >
+                <input type="file" name="imagem" id="" required>
+                </div>
+                <div>
+                <img src="/NetCommerce/View/IMG/Picture.png">
+                <input type="file" name="imagem2" id=""  >
+                </div>
+                <div>
+                <img src="/NetCommerce/View/IMG/Picture.png" >
+                <input type="file" name="imagem3" id="" >
+                </div>
+                <div>
+                <img src="/NetCommerce/View/IMG/Picture.png">
+                <input type="file" name="imagem4" id=""  >
+            
             </div>
-            <div>
-            <img src="/NetCommerce/View/IMG/Video.png">
-            <input type="file" name="video" id="" >
-            </div>
+            
 
             <input type="text" id="user" name="Id_Usuario"  value="<?php echo $_SESSION['Id_Usuario'] ?>" hidden>
             <textarea name="descricao" id="" cols="20" rows="50" placeholder="Descrição Detalhada do Produto" required></textarea> <br>
@@ -283,7 +301,7 @@
     }
 
     function abrir(id) {
-        overlay.style.display = "block"
+        overlay.style.display = "flex"
         detalhesProduto.style.display = "block"
 
         var xmlhttp = new XMLHttpRequest();
@@ -336,6 +354,7 @@
                 VP(user.value)
             }
         }
+        grafico()
     }
 
     function VP(user) {
@@ -448,7 +467,8 @@
         }
     }
 
-    function filtrar (){
+    function filtrar ()
+    {
 
         perfil.style.display = "none"
         corpo.style.display = "none"
@@ -471,6 +491,82 @@
         }
     }
     
+    var xValues = ["Vendas Pendentes", "Vendas Aprovadas", "Vendas Bem Sucedidas", "Vendas Rejeitadas"];
+        // var yValues = [55, 49, 1, 24];
+
+        var barColors = ["yellow", "dodgerblue","green","rgb(150, 0, 0)"];
+        var _VBS = 0
+        var _VA = 0
+        var _VendaP = 0
+    
+    function grafico(){
+
+        var xmlhttp = new XMLHttpRequest();
+
+        let url = "/NetCommerce/Model/VBS.php?user="+user.value;
+        xmlhttp.open('GET', url, true);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = () => {
+            if (xmlhttp.readyState == 4) // Return Request
+            {
+                _VBS = xmlhttp.response
+                VA()
+            }
+        }
+
+        function VA(){
+            var xmlhttp = new XMLHttpRequest();
+
+            let url = "/NetCommerce/Model/VA.php?user="+user.value;
+            xmlhttp.open('GET', url, true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = () => {
+                if (xmlhttp.readyState == 4) // Return Request
+                {
+                    _VA = xmlhttp.response
+                    VendaP()
+                }
+            }
+        }
+
+        function VendaP(){
+            var xmlhttp = new XMLHttpRequest();
+
+            let url = "/NetCommerce/Model/VendaP.php?user="+user.value;
+            xmlhttp.open('GET', url, true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = () => {
+                if (xmlhttp.readyState == 4) // Return Request
+                {
+                    _VendaP = xmlhttp.response
+                    g()
+                }
+            }
+        }
+        
+        }
+
+        function g (){
+
+            var yValues = [_VendaP,_VA, _VBS, 1];
+
+            var myChart = new Chart("myChart", {
+        type: "pie",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            title: {
+            display: true,
+            text: "Minhas Vendas"
+            }
+        }
+        });
+        }
 </script>
 
 </html>
