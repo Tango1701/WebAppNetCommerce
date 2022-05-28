@@ -62,7 +62,7 @@
                     echo " <form class='pedido' action='/NetCommerce/index.php/aprovarProduto' method='POST'>";
                         echo "<div class='imgItem'> ";
                             echo "<img 
-                                src='http://localhost/NetCommerce/files/".$linha['Id_Usuario']."/".$linha['Id_Produto']."/".$linha['Imagem']."'>";
+                                src='http://localhost/NetCommerce/Files/".$linha['Id_Usuario']."/".$linha['Id_Produto']."/".$linha['Imagem']."'>";
                         echo "</div> ";
                         echo "<div class='itemDetalhes'> ";
                             echo "<h5>".$linha['Nome']."</h5> ";
@@ -73,6 +73,8 @@
                             echo "<label>".$linha['Tipo']."</label> <br>";
                             echo "<label>Descrição:</label> ";
                             echo "<label>".$linha['Descricao']."</label>";
+                       echo "http://localhost/NetCommerce/Files/".$linha['Id_Usuario']."/".$linha['Id_Produto']."/".$linha['Imagem'];
+
                         echo "</div> ";
                         echo "<div class='btnAprovacaoContainer'> ";
                             echo "<Button type='submit' class='btnAprovacao'>Aprovar</Button>";

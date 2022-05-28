@@ -9,8 +9,8 @@ $user = $_GET['user'];
 $string_select = "SELECT * FROM produto WHERE Id_Usuario = '$user'";
 $recebe = mysqli_query($conect, $string_select);
 if($recebe){
-    echo "<h3>Vendas Pendentes</h3>";
-    echo "<table>";
+    echo "<div id='linha'><h5>Vendas Pendentes</h5></div>";
+    echo "<table id='customers'>";
     echo "<tr> 
             <th>ID</th>
             <th>Nome</th>

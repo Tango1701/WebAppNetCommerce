@@ -132,3 +132,41 @@ form .form{
   width: 100%;
   background-color: black;
 }
+
+
+.confirma input:not(input[type=button]), #TipoC{
+  height: 35px;
+  width: 90%;
+}
+
+#Editar{
+  border: 1px solid rgb(21, 146, 230);
+  background-color: white;
+  color: rgb(21, 146, 230);
+  width: 90%;
+  width: 90%;
+  height: 40px;
+  border-radius: 5px;
+}
+#Editar:hover{
+  color: white;
+  background-color: rgb(21, 146, 230);
+}
+#Salvar{
+  width: 90%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(21, 146, 230);
+  color: white;
+}
+#DataNascimentoC, #EstadoCivilC, #TelefoneC, #EmailC, #BIC, #ProvinciaC, #BancoC, #ContaC{
+  width: 44.5%;
+}
+.lbl{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+

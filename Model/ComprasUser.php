@@ -9,7 +9,7 @@ $recebe = mysqli_query($conect, $pp);
 
 $soma = 0;
 
-echo "<h3>Compras Feitas</h3>";
+echo "<div id='linha'><h5>Compras Feitas</h5></div>";
 while($linha = mysqli_fetch_assoc($recebe)){
 
     $Id_Prod = $linha['Id_Produto'];
@@ -30,7 +30,7 @@ while($linha = mysqli_fetch_assoc($recebe)){
     $soma = $soma + $dados['Preco'];
 
 }
-    echo "<div class='CF'> <h3>Total Gasto </h3> <label>".$soma." AOA</label> </div>";
+    echo "<div class='CF'> <h5>Total Gasto </h5> <label>".$soma." AOA</label> </div>";
 
 
 ?>

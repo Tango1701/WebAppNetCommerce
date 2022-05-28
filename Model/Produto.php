@@ -46,17 +46,21 @@ class Produto{
         $imagem4 = $_FILES['imagem4']['name'];
 
         $hoje = date("Y-m-d");
+
+
+        $pegaIdProduto = "SELECT Proximo_Prod FROM config WHERE ID = 1";
+        $result = mysqli_query($conect, $pegaIdProduto);
+        $result = mysqli_fetch_assoc($result);
+
+        $novoId = $result['Proximo_Prod'];
+
+        echo $_FILES['imagem']['name'];
+
         // Creating SQL query and insert the record into MySQL database table.
-        $Sql_Query = "INSERT INTO produto ( Id_Usuario, Nome, Tipo, Preco, Imagem, Video, Descricao, Time) 
-        VALUES ('$Id_Usuario', '$name','$tipo','$preco','$imagem', 'null','$descricao','$hoje')";
+        $Sql_Query = "INSERT INTO produto (Id_Produto, Id_Usuario, Nome, Tipo, Preco, Imagem, Video, Descricao, Time) 
+        VALUES ($novoId,'$Id_Usuario', '$name','$tipo','$preco','$imagem', 'null','$descricao','$hoje')";
         
         if(mysqli_query($conect, $Sql_Query)){
-
-            $pegaIdProduto = "SELECT Proximo_Prod FROM config WHERE ID = 1";
-            $result = mysqli_query($conect, $pegaIdProduto);
-            $result = mysqli_fetch_assoc($result);
-
-            $novoId = $result['Proximo_Prod'];
 
         // If the record inserted successfully then show the message.
         $MSG = "O produto foi registrado e aguarda aprovação. \n Leve ao estabelecimento NetCommerce para ser avaliado" ;
@@ -87,7 +91,7 @@ class Produto{
         $novoP = "UPDATE config SET Proximo_Prod = $novoId  WHERE ID = 1";
         mysqli_query($conect, $novoP);
         echo "<script> alert('A sua venda encontra-se em validação. Por favor entregue o produto ao estabelecimento NetCommerce mais proximo!'); </script>";
-        header("location: /NetCommerce/View/UserHome.php");
+        header("location: /NetCommerce/View/DashHome.php");
         
         }
         else{

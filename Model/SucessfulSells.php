@@ -10,8 +10,8 @@ $user = $_GET['user'];
 $string_select = "SELECT * FROM produtoaceite WHERE Id_Usuario = '$user' AND Estado = 'Inactivo'";
 $recebe = mysqli_query($conect, $string_select);
 
-echo "<h3 '>Vendas Bem Sucedidas</h3>";
-echo "<table>";
+echo "<div id='linha'><h5>Vendas Bem Sucedidas</h5></div>";
+echo "<table id='customers'>";
 echo "<tr> 
         <th>ID</th>
         <th>Nome</th>
@@ -42,7 +42,7 @@ echo "</table>";
 
 $soma = $soma * 0.9;
 
-echo "<div id='linha'> <h3>Total Rendimentos Obtidos</h3> <label>".$soma." AOA</label> </div>";
+echo "<div id='linha'> <label>Total Rendimentos Obtidos</label> <label>".$soma." AOA</label> </div>";
 
 
 

@@ -9,8 +9,8 @@ $user = $_GET['user'];
 $string_select = "SELECT * FROM produtoaceite WHERE Id_Usuario = '$user' AND Estado = 'Activo'";
 $recebe = mysqli_query($conect, $string_select);
 
-echo "<h3 >Vendas Aprovadas</h3>";
-echo "<table>";
+echo "<div id='linha'><h5>Vendas Aprovadas</h5></div>";
+echo "<table id='customers'>";
 echo "<tr> 
         <th>ID</th>
         <th>Nome</th>
@@ -33,7 +33,7 @@ while($linha = mysqli_fetch_assoc($recebe)){
 
 echo "</table>";
 
-echo "<div id='linha'> <h3>Total Rendimentos Esperado</h3> <label>".$soma." AOA</label> </div>";
+echo "<div id='linha'> <h5>Total Rendimentos Esperado</h5> <label>".$soma." AOA</label> </div>";
 
 
 ?>
