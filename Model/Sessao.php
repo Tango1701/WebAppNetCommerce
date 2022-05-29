@@ -97,7 +97,7 @@ class Sessao
          $Senha = md5(time() . $user);  
        
          // Creating SQL query and insert the record into MySQL database table.
-        $Sql_Query = "INSERT INTO usuario(Id_Usuario, Nome, Data_Nascimento, BI, Estado_Civil, Sexo, Email, Senha, Foto, Telefone, Morada, Provincia) 
+        $Sql_Query = "INSERT INTO usuario_pendente(Id_Usuario, Nome, Data_Nascimento, BI, Estado_Civil, Sexo, Email, Senha, Foto, Telefone, Morada, Provincia) 
         VALUES ('$user','$Nome','$DataNascimento','$BI','$EstadoCivil','$Sexo','$Email','$Senha','$Doc_Photo','$Telefone','$Morada','$Provincia')";
 
          if(mysqli_query($conect, $Sql_Query)){
@@ -134,6 +134,9 @@ class Sessao
             }
 
         }
+
+            echo "<script> alert('A sua conta está em revisão. Receberá um email com os seus dados de acesso')";
+
            if($foi){
             header("location: /NetCommerce/index.php/");
            }

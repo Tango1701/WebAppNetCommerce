@@ -17,7 +17,8 @@
   <script src="JS/bootstrap-5.0.0-beta1-dist/js/bootstrap.bundle.js"></script>
   <script src="JS/chart.js/Chart.min.js"></script>
 
-  <!-- <script src="JS/bootstrap-5.0.0-beta1"></script> -->
+  
+  
 
 
   <title>NetCommerce</title>

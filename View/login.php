@@ -20,7 +20,7 @@
         
         <div class="pageLogin">
 
-            <img src="/NetCommerce/View/IMG/ubuntu.jpg" id="bg">
+            <img src="/NetCommerce/View/IMG/Login_bg.jpg" id="bg">
 
             <form class="formulario" id="formulario" method="POST" action="/NetCommerce/index.php/log"> <br>
                 <h2>Iniciar Sessão</h2>  <br> <br> <br>
@@ -42,7 +42,7 @@
             </form>
         </div>
         
-        <form class="reg" id="reg" method="POST" action="/NetCommerce/Model/Cadastro.php" enctype="multipart/form-data">  <br>
+        <!-- <form class="reg" id="reg" method="POST" action="/NetCommerce/Model/Cadastro.php" enctype="multipart/form-data">  <br>
                 <h2>Criar Conta</h2> <br> <br>
                 
                 <div>
@@ -68,7 +68,7 @@
                 <button onclick="vaiLogin()" id="asideBtn">Iniciar Sessão</button> <br>
                 
                 <h5>Desenvolvido por: Mateus Tango</h5>
-        </form>
+        </form> -->
 
     </div>
 </body>
@@ -84,8 +84,7 @@
     }
 
     var vaiReg = () => {
-        formReg.style.display = "flex"
-        formLog.style.display = "none"
+        document.location.href = "/NetCommerce/View/DashCadastro.php"
     }
     
 </script>
